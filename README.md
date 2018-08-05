@@ -4,7 +4,6 @@
 ## Table of Contents
 
 * [General](#general)
-* [DEMO](#demo)
 * [Getting Started](#getting-started)
 
 
@@ -16,9 +15,6 @@ MyReads is a bookshelf app that allows the user to select and categorize books t
 ![Main Page](src/icons/main_page.PNG "main_page")
 ![Search Page](src/icons/search_page.png "search_page")
 
-## DEMO:
-
-Load this link in your browser https://patibugaj.github.io/reactnd-project-myreads-starter/
 
 ## Getting Started
 
