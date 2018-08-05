@@ -13,7 +13,7 @@
 This repository contains my implementation of the MyReads app. This is on of the assessment project for the Udacity's Front-End Web Developer Nanodegree programm which is part of Google Developer Challenge. 
 MyReads is a bookshelf app that allows the user to select and categorize books they have read, are currently reading, or want to read.
 
-![Main Page](src/icons/main_page.png "main_page")
+![Main Page](src/icons/main_page.PNG "main_page")
 ![Search Page](src/icons/search_page.png "search_page")
 
 ## DEMO:
