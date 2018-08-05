@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll().then((booksArray) => {
       const books = {}
-      
+      console.log(booksArray)
       booksArray.forEach(book => {
         books[book.id] = book
       })
@@ -22,13 +22,15 @@ class BooksApp extends React.Component {
     })
   }
 
-  handleShelfChange = (id, shelf) => {    
-    BooksAPI.update({ id }, shelf)
+  handleShelfChange = (book, shelf) => {  
+    console.log('handleShelfChange')
+    console.log(this.state.books)
+    BooksAPI.update(book, shelf)
     .then(() => this.setState({
       books: {
         ...this.state.books,
-        [id]: {
-          ...this.state.books[id],
+        [book.id]: {
+          ...book,
           shelf
         }
       }
@@ -46,7 +48,8 @@ class BooksApp extends React.Component {
         )}/>
         <Route path='/search' render={() => (
           <SearchPage 
-              handleShelfChange={this.handleShelfChange} 
+            books={this.state.books}
+            handleShelfChange={this.handleShelfChange} 
           />
         )} />
       </div>

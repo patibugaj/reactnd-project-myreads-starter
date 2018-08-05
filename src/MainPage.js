@@ -11,6 +11,8 @@ const shelves = [
 class MainPage extends Component {
 
 	render() {
+		console.log('state books')
+		console.log(this.props.books)
 		return(
 			<div className="list-books">
         <div className="list-books-title">
@@ -20,7 +22,12 @@ class MainPage extends Component {
           <div>
           	{
           		shelves.map((shelf) => 
-            		<BookShelf books={this.props.books} shelf={shelf} key={shelf.id}  handleShelfChange={this.props.handleShelfChange} />            
+            		<BookShelf 
+            			books={this.props.books} 
+            			shelf={shelf} 
+            			key={shelf.id}  
+            			handleShelfChange={this.props.handleShelfChange} 
+            		/>            
           		)
           	}
           </div>

@@ -9,8 +9,6 @@ class SearchPage extends Component {
     searchedBooks: {},
   }
 
-
-
   updateQuery = (searchQuery) => {
   	this.setState({
   		searchQuery
@@ -26,12 +24,13 @@ class SearchPage extends Component {
 
 	  } else {
 	    BooksAPI.search(searchQuery).then((searchedBooksArray) => {
-	    	
+
 	    	if(searchQuery!==this.state.searchQuery)
 	    		return
 
 	    	const searchedBooks = {}
-
+	    	console.log('search')
+console.log(searchedBooksArray)
 	      searchedBooksArray.forEach(searchedBook => {
 	        searchedBooks[searchedBook.id] = searchedBook
 	      })
@@ -69,14 +68,21 @@ class SearchPage extends Component {
 
 	        </div>
 	      </div>
-	      
+
 	      <div className="search-books-results">
 	        <ol className="books-grid">
 	        {
             Object.values(this.state.searchedBooks)
             .map(searchedBook => (
             	<li key={ searchedBook.id } >
-            		<Book book={ searchedBook } handleShelfChange={this.props.handleShelfChange} />
+            		<Book 
+            			book={ {
+	            				...this.props.books[searchedBook.id],
+	            				...searchedBook
+            			} } 
+            			shelf={ this.props.books[searchedBook.id] && this.props.books[searchedBook.id].shelf }
+            			handleShelfChange={this.props.handleShelfChange} 
+            		/>
             	</li>
             ))
           }
