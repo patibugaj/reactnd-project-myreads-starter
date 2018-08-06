@@ -80,7 +80,7 @@ console.log(searchedBooksArray)
 	            				...this.props.books[searchedBook.id],
 	            				...searchedBook
             			} } 
-            			shelf={ this.props.books[searchedBook.id] && this.props.books[searchedBook.id].shelf }
+            			shelf={ this.props.books[searchedBook.id] ? this.props.books[searchedBook.id].shelf : 'none'}
             			handleShelfChange={this.props.handleShelfChange} 
             		/>
             	</li>
